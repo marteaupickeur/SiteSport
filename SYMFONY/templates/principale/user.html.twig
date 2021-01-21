@@ -1,0 +1,354 @@
+{% extends 'base.html.twig' %}
+
+{% block title %}{% endblock %}
+
+{% block body %}
+    <!-- banner -->
+    <div class=" banner">
+        <div class="wthree-different-dot">
+            <!-- header -->
+            <div class="header">
+                <div class="container">
+
+                    <div class="header-mdl agileits-logo"><!-- header-two -->
+                        <h1><a href="{{ path('user_login') }}">Fit Club- {% if (app.user.username is defined and app.user.username is not null) %}{{ app.user.username }} {% endif %}</a></h1>
+                    </div>
+
+                    <div class="header-nav"><!-- header-three -->
+                        <nav class="navbar navbar-default">
+                            <div class="navbar-header">
+                                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-1">
+                                    <span class="sr-only">Toggle navigation</span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                    <span class="icon-bar"></span>
+                                </button>
+                            </div>
+                            <!-- top-nav -->
+                            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-1">
+                                <ul class="nav navbar-nav">
+                                    <li><a href="{{ path('principale') }}" >Acceuil</a></li>
+                                    <li><a href="#pricing" class="scroll" data-hover="Pricing tables">Ton Abonnement</a></li>
+                                    <li><a href="#pricing2" class="scroll" data-hover="Pricing tables">Changer Abonnement</a></li>
+                                    <li><a href="#contact" class="scroll" data-hover="Contact">Contact</a></li>
+                                    {% if is_granted('ROLE_ADMIN') %}
+                                        <li><a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-haspopup="true" aria-expanded="false">Basculez <span class="caret"></span></a>
+                                            <ul class="dropdown-menu">
+                                                <li><a href="{{ path('easyadmin') }}" >Admin</a></li>
+                                                <li><a href="{{ path('app_logout') }}">Deconnexion</a></li>
+                                            </ul>
+                                        </li>
+                                    {% else %}
+                                        <li> <a href="{{ path('app_logout') }}" ><svg xmlns="http://www.w3.org/2000/svg" x="0px" y="0px"
+                                                                                  width="35" height="35"
+                                                                                  viewBox="0 0 172 172"
+                                                                                  style=" fill:#000000;"><g transform="translate(5.16,5.16) scale(0.94,0.94)"><g fill="none" fill-rule="nonzero" stroke="none" stroke-width="none" stroke-linecap="butt" stroke-linejoin="none" stroke-miterlimit="10" stroke-dasharray="" stroke-dashoffset="0" font-family="none" font-weight="none" font-size="none" text-anchor="none" style="mix-blend-mode: normal"><g fill="#000000" stroke="#000000" stroke-width="11" stroke-linejoin="round"><path d="M165.12,86c0,43.6552 -35.4648,79.12 -79.12,79.12c-26.17935,0 -49.41796,-12.7467 -63.81469,-32.36422c-0.77173,-0.98775 -0.94516,-2.31706 -0.45269,-3.46975c0.49247,-1.15269 1.57289,-1.94631 2.82011,-2.0715c1.24722,-0.12519 2.46381,0.43787 3.17555,1.46969c13.15079,17.91976 34.32338,29.55578 58.27172,29.55578c39.9368,0 72.24,-32.3032 72.24,-72.24c0,-39.9368 -32.3032,-72.24 -72.24,-72.24c-23.94833,0 -45.12464,11.63661 -58.27172,29.55578c-0.71174,1.03182 -1.92834,1.59488 -3.17555,1.46969c-1.24722,-0.12519 -2.32764,-0.91881 -2.82011,-2.0715c-0.49247,-1.15269 -0.31904,-2.482 0.45269,-3.46975c14.39357,-19.61811 37.63534,-32.36422 63.81469,-32.36422c43.6552,0 79.12,35.4648 79.12,79.12zM41.04252,57.10441c0.55299,1.30667 0.24708,2.81881 -0.77034,3.80778l-21.64781,21.64781h74.25562c1.24059,-0.01754 2.39452,0.63425 3.01993,1.7058c0.62541,1.07155 0.62541,2.39684 0,3.46839c-0.62541,1.07155 -1.77935,1.72335 -3.01993,1.7058h-74.25562l21.64781,21.64781c0.89867,0.86281 1.26068,2.14404 0.94641,3.34956c-0.31427,1.20552 -1.2557,2.14696 -2.46122,2.46122c-1.20552,0.31427 -2.48675,-0.04774 -3.34956,-0.94641l-27.21094,-27.21094c-0.85589,-0.64958 -1.35914,-1.66175 -1.36046,-2.73623c-0.00132,-1.07448 0.49945,-2.08787 1.35374,-2.73956l27.21766,-27.21765c0.62306,-0.64127 1.47129,-1.01478 2.365,-1.04141c1.41826,-0.04183 2.71671,0.79133 3.26971,2.098z"></path></g><path d="M0,172v-172h172v172z" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter"></path><g fill="#ffffff" stroke="none" stroke-width="1" stroke-linejoin="miter"><path d="M86,6.88c-26.17935,0 -49.42112,12.74611 -63.81469,32.36422c-0.77173,0.98775 -0.94516,2.31706 -0.45269,3.46975c0.49247,1.15269 1.57289,1.94631 2.82011,2.0715c1.24722,0.12519 2.46381,-0.43787 3.17555,-1.46969c13.14707,-17.91917 34.32338,-29.55578 58.27172,-29.55578c39.9368,0 72.24,32.3032 72.24,72.24c0,39.9368 -32.3032,72.24 -72.24,72.24c-23.94833,0 -45.12093,-11.63602 -58.27172,-29.55578c-0.71174,-1.03182 -1.92834,-1.59488 -3.17555,-1.46969c-1.24722,0.12519 -2.32764,0.91881 -2.82011,2.0715c-0.49247,1.15269 -0.31904,2.482 0.45269,3.46975c14.39673,19.61752 37.63534,32.36422 63.81469,32.36422c43.6552,0 79.12,-35.4648 79.12,-79.12c0,-43.6552 -35.4648,-79.12 -79.12,-79.12zM37.77281,55.0064c-0.89371,0.02663 -1.74194,0.40014 -2.365,1.04141l-27.21766,27.21765c-0.85429,0.65168 -1.35506,1.66508 -1.35374,2.73956c0.00132,1.07448 0.50457,2.08664 1.36046,2.73623l27.21094,27.21094c0.86281,0.89867 2.14404,1.26068 3.34956,0.94641c1.20552,-0.31427 2.14696,-1.2557 2.46122,-2.46122c0.31427,-1.20552 -0.04774,-2.48675 -0.94641,-3.34956l-21.64781,-21.64781h74.25562c1.24059,0.01754 2.39452,-0.63425 3.01993,-1.7058c0.62541,-1.07155 0.62541,-2.39684 0,-3.46839c-0.62541,-1.07155 -1.77935,-1.72335 -3.01993,-1.7058h-74.25562l21.64781,-21.64781c1.01742,-0.98897 1.32333,-2.50111 0.77034,-3.80778c-0.55299,-1.30667 -1.85145,-2.13983 -3.26971,-2.098z"></path></g><path d="" fill="none" stroke="none" stroke-width="1" stroke-linejoin="miter"></path></g></g></svg></a></li>
+                                    {% endif %}
+
+                                </ul>
+                                <div class="clearfix"> </div>
+                            </div>
+                        </nav>
+                    </div>
+                </div>
+            </div>
+            <!-- //header -->
+
+            <!-- banner slider -->
+            <div class="banner-top">
+                <div class="slider">
+                    <div class="callbacks_container">
+                        <ul class="rslides callbacks callbacks1" id="slider4">
+                            <li>
+                                <div class="wthree-different-dot">
+                                    <div class="banner_text">
+                                        <div class="container">
+                                            <h2>Force et Santé</h2>
+                                            <p>Des exercices et un coaching qui vous permettra de vous boostez</p>
+                                            <div class="thim-click-to-bottom">
+                                                <a href="#about" class="scroll">
+                                                    <i class="fa  fa-long-arrow-down"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="wthree-different-dot">
+                                    <div class="banner_text">
+                                        <div class="container">
+                                            <h3>Coaching</h3>
+                                            <p>Des conseils et coachs pros à votre disposition </p>
+                                            <div class="thim-click-to-bottom">
+                                                <a href="#about" class="scroll">
+                                                    <i class="fa  fa-long-arrow-down"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="wthree-different-dot">
+                                    <div class="banner_text">
+                                        <div class="container">
+                                            <h3>Détermination</h3>
+                                            <p>On va donnez goût au sport!</p>
+                                            <div class="thim-click-to-bottom">
+                                                <a href="#about" class="scroll">
+                                                    <i class="fa  fa-long-arrow-down"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                            <li>
+                                <div class="wthree-different-dot">
+                                    <div class="banner_text">
+                                        <div class="container">
+                                            <h3>Exercise</h3>
+                                            <p>Des exercices adaptés à votre rythme</p>
+                                            <div class="thim-click-to-bottom">
+                                                <a href="#about" class="scroll">
+                                                    <i class="fa  fa-long-arrow-down"></i>
+                                                </a>
+                                            </div>
+                                        </div>
+                                    </div>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+            <!-- banner slider -->
+
+        </div>
+    </div>
+    <!-- //banner -->
+
+    <!-- pricing plans -->
+    <section class="pricing" id="pricing">
+        <div class="container">
+            <h3 class="heading">Ton <span>Abonnement</span></h3>
+    {% if app.user.cours is defined and app.user.cours is not null  %}
+        <div class="w3l-pricing-grids">
+            <div class="agileits-pricing-grid first">
+                <div class="pricing_grid">
+                    <div class="pricing-top">
+                        <h3>{{ app.user.cours.nom }}</h3>
+                    </div>
+                    <div class="wthree-pricing-info">
+                        <p>€<span>{{ app.user.cours.prix }}</span>/mois</p>
+                    </div>
+                    <div class="pricing-bottom">
+                        <div class="pricing-bottom-bottom">
+                            <p><span class="{{ app.user.cours.entGeneral }}"></span><span>Entrainement </span> Général</p>
+                            <p><span class="{{ app.user.cours.debutant }}"></span><span>Débutant </span></p>
+                            <p><span class="{{ app.user.cours.entPersonnel }}"></span><span>Entrainement </span> Personnel</p>
+                            <p><span class="{{ app.user.cours.musculation }}"></span><span>Musculation </span></p>
+                            <p class="text"><span class="{{ app.user.cours.formBasique }}"></span><span>Formation </span> Basique</p>
+                        </div>
+                        <div class="buy-button">
+                            <a class="popup-with-zoom-anim" href="#small-dialog">Supprimer</a>
+                        </div>
+
+                    </div>
+                </div>
+            </div>
+            <div class="clearfix"> </div>
+        </div>
+    {% else %}
+        <p>Vous n'êtes pas inscrit dans un cours</p>
+    {% endif %}
+        </div>
+    </section>
+    <!-- //pricing plans -->
+
+    <!-- pricing plans 2-->
+    <section class="pricing" id="pricing2">
+        <div class="container">
+            <h3 class="heading">Changer d'<span>Abonnements</span></h3>
+            <div class="w3l-pricing-grids">
+                {% for cours in liste_cours %}
+                    <div class="agileits-pricing-grid first">
+                        <div class="pricing_grid">
+                            <div class="pricing-top">
+                                <h3>{{ cours.nom }}</h3>
+                            </div>
+                            <div class="wthree-pricing-info">
+                                <p>€<span>{{ cours.prix }}</span>/mois</p>
+                            </div>
+                            <div class="pricing-bottom">
+                                <div class="pricing-bottom-bottom">
+                                    <p><span class="{{ cours.entGeneral }}"></span><span>Entrainement </span> Général</p>
+                                    <p><span class="{{ cours.debutant }}"></span><span>Débutant </span></p>
+                                    <p><span class="{{ cours.entPersonnel }}"></span><span>Entrainement </span> Personnel</p>
+                                    <p><span class="{{ cours.musculation }}"></span><span>Musculation </span></p>
+                                    <p class="text"><span class="{{ cours.formBasique }}"></span><span>Formation </span> Basique</p>
+                                </div>
+                                <div class="buy-button">
+                                    <a  href="{{ path('coursupdate',{'id':cours.id}) }}">Changer</a>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                {% endfor %}
+
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </section>
+    <!-- //pricing plans 2-->
+
+    <!--pop-up-grid-->
+    {% if (app.user.cours.id is defined and app.user.cours.id is not null) %}
+    <div id="popup">
+        <div id="small-dialog" class="mfp-hide">
+            <div class="signin-form profile">
+                <h3>Confirmation</h3>
+                <div class="login-form">
+                    <a href=" {{path('coursdelete',{'id':app.user.cours.id})}} ">OUI</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    {% endif %}
+
+    <!--pop-up-grid-->
+
+    {#<!-- agents section -->
+    <section class="demo" id="coaches">
+        <div class="container">
+            <h3 class="heading">Vos <span>Coaches</span></h3>
+            <div id="verticalTab">
+                <ul class="resp-tabs-list">
+                    {% for coache in liste_coaches %}
+                        <li>
+                            <div class="col-md-4 tab1">
+                                <img src="{{ asset('images/'~coache.icone) }}" alt="" />
+                            </div>
+                            <div class="col-md-8 tab1">
+                                <h3>{{ coache.nom }}</h3>
+                                <h4>Entraineur</h4>
+                            </div>
+                            <div class="clearfix"></div>
+                        </li>
+                    {% endfor %}
+                </ul>
+
+                <div class="resp-tabs-container">
+                    {% for coache in liste_coaches  %}
+                        <div>
+                            <div class="col-md-7 tabs-right1">
+                                <h3>{{ coache.nom }}</h3>
+                                <h4>Coach</h4>
+                                <ul class="social">
+                                    <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                                    <li><a  href="#"><i class="fa fa-twitter"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-dribbble"></i></a></li>
+                                    <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                                </ul>
+                                <div class="tab-bottom">
+                                    <p><i class="fa fa-map-marker" aria-hidden="true"></i>{{ coache.adresse }}</p>
+                                    <p><i class="fa fa-envelope" aria-hidden="true"></i><a href="mailto:{{ coache.email }}">{{ coache.email }}</a></p>
+                                    <p><i class="fa fa-phone" aria-hidden="true"></i>{{ coache.num }}</p>
+                                </div>
+
+                            </div>
+                            <div class="col-md-5 tabs-right2">
+                                <img src="{{ asset('images/'~coache.image) }}" alt="" />
+                            </div>
+                            <div class="clearfix"></div>
+                        </div>
+                    {% endfor  %}
+                </div>
+            </div>
+        </div>
+    </section>
+    <!-- //agents section -->
+#}
+    <!-- contact -->
+    <section class="w3ls-section contact" id="contact">
+        <div class="container">
+            <div class="w3ls-title">
+                <h3 class="heading">Entrer en <span>contact</span></h3>
+            </div>
+            <div class="w3ls_map">
+                <iframe src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d20831.664707663043!2d-0.28237986044921876!3d49.2582403!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x480a64021b91be47%3A0xcc9bafe5778b6bf7!2sFITCLUB%20%3A%20club%20de%20fitness%20%C3%A0%20Ouistreham!5e0!3m2!1sfr!2sfr!4v1571538919240!5m2!1sfr!2sfr" width="600" height="450" frameborder="0" style="border:0;" allowfullscreen=""></iframe>
+            </div>
+
+            <div class="contact_wthreerow agileits-w3layouts">
+
+                <div class="col-md-7 w3l_contact_form">
+                    <h4>Contact</h4>
+                    <form action="#" method="post">
+                        <input type="text" name="Name" value="Nom" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Nom';}"
+                               required="">
+                        <input type="email" name="Email" value="Email" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Email';}"
+                               required="">
+                        <input type="text" name="Phone" value="Tel" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Tel';}"
+                               required="">
+                        <textarea name="Message" onfocus="this.value = '';" onblur="if (this.value == '') {this.value = 'Message...';}" required="">Message...</textarea>
+                        <input type="submit" value="Envoyer">
+                    </form>
+                </div>
+                <div class="col-md-5 agileits_w3layouts_contact_gridl">
+                    <div class="agileits_mail_grid_right_grid">
+                        <h4>Contact Infos</h4>
+                        <ul class="contact_info">
+                            <li><span class="fa fa-map-marker" aria-hidden="true"></span>Z.a. Du Maresquier, 14150 Ouistreham.</li>
+                            <li><span class="fa fa-envelope" aria-hidden="true"></span><a href="mailto:info@example.com">fit.club@gmail.com</a></li>
+                            <li><span class="fa fa-phone" aria-hidden="true"></span>+1(21) 244 567 5678</li>
+                            <li><span class="fa fa-globe" aria-hidden="true"></span><a href="#">fitclub.com</a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+        </div>
+    </section>
+    <!-- //contact -->
+
+    <!-- footer -->
+    <section class="footer">
+        <div class="container">
+            <div class="agileinfo-grids">
+                <div class="agile-grid-left agile-grid-right">
+                    <h4>Nous suivre sur</h4>
+                    <div class="social">
+                        <ul>
+                            <li><a href="#"><i class="fa fa-facebook"></i></a></li>
+                            <li><a href="#"><i class="fa fa-twitter"></i></a></li>
+                            <li><a href="#"><i class="fa fa-google-plus"></i></a></li>
+                            <li><a href="#"><i class="fa fa-rss"></i></a></li>
+                            <li><a href="#"><i class="fa fa-pinterest"></i></a></li>
+                            <li><a href="#"><i class="fa fa-vk"></i></a></li>
+                        </ul>
+                    </div>
+                </div>
+                <div class="clearfix"> </div>
+            </div>
+            <div class="agile-nav">
+                <ul>
+                    <li><a href="{{ path('principale') }}">Acceuil</a></li>
+                    <li><a href="#pricing" class="scroll">Plan des prix</a></li>
+                    <li><a href="#contact" class="scroll">Contact </a></li>
+
+                </ul>
+            </div>
+        </div>
+    </section>
+    <!-- //footer -->
+
+    <!-- copyright -->
+    <div class="copyright">
+        <div class="container">
+            <p>© 2018 Fit club. All Rights Reserved | Design by <a href="http://w3layouts.com/"> W3layouts</a> <a
+
+        </div>
+    </div>
+    <!-- //copyright -->
+{% endblock %}

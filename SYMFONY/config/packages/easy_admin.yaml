@@ -1,0 +1,105 @@
+easy_admin:
+    entities:
+#         List the entity class name you want to manage
+         Coache:
+             class: App\Entity\Coache
+             list:
+                 fields:
+                   - { property: 'id'}
+                   - { property: 'nom'}
+                   - { property: 'adresse'}
+                   - { property: 'email'}
+                   - { property: 'num'}
+                   - { property: 'image', type: 'image', base_path: '%app.path.coaches_images%' }
+                   - { property: 'icone', type: 'image', base_path: '%app.path.coaches_images%' }
+                   - { property: 'updatedAt'}
+                   - { property: 'created_at'}
+             form:
+                 fields:
+                   - { property: 'nom'}
+                   - { property: 'adresse'}
+                   - { property: 'email'}
+                   - { property: 'num'}
+                   - { property: 'imageFile', type: 'file', base_path: '%app.path.coaches_images%' }
+                   - { property: 'iconeFile', type: 'file', base_path: '%app.path.coaches_images%' }
+
+
+             show:
+                 fields:
+                     - { property: 'image', type: 'image', base_path: '%app.path.coaches_images%' }
+                     - { property: 'icone', type: 'image', base_path: '%app.path.coaches_images%' }
+
+         Cours:
+             class: App\Entity\Cours
+             form:
+               fields:
+                 - { property: 'nom' }
+                 - { property: 'prix' }
+                 -  property: 'ent_general'
+                    type: 'choice'
+                    type_options:
+                      mapped: true
+                      expanded: true
+                      multiple: false
+                      choices: { 'oui': 'fa fa-check', 'nom': 'fa fa-times' }
+                 -   property: 'debutant'
+                     type: 'choice'
+                     type_options:
+                       mapped: true
+                       expanded: true
+                       multiple: false
+                       choices: { 'oui': 'fa fa-check', 'nom': 'fa fa-times' }
+                 -   property: 'ent_personnel'
+                     type: 'choice'
+                     type_options:
+                       mapped: true
+                       expanded: true
+                       multiple: false
+                       choices: { 'oui': 'fa fa-check', 'nom': 'fa fa-times' }
+                 -   property: 'musculation'
+                     type: 'choice'
+                     type_options:
+                       mapped: true
+                       expanded: true
+                       multiple: false
+                       choices: { 'oui': 'fa fa-check', 'nom': 'fa fa-times' }
+                 -   property: 'form_basique'
+                     type: 'choice'
+                     type_options:
+                       mapped: true
+                       expanded: true
+                       multiple: false
+                       choices: { 'oui': 'fa fa-check', 'nom': 'fa fa-times' }
+
+         User:
+             class: App\Entity\User
+
+         Materiel:
+           class: App\Entity\Materiel
+           list:
+             fields:
+               - { property: 'id'}
+               - { property: 'nom'}
+               - { property: 'description'}
+               - { property: 'image', type: 'image', base_path: '%app.path.materiels_images%' }
+               - { property: 'icone', type: 'image', base_path: '%app.path.materiels_images%' }
+               - { property: 'updatedAt'}
+               - { property: 'created_at'}
+           form:
+             fields:
+               - { property: 'nom'}
+               - { property: 'description'}
+               - { property: 'imageFile', type: 'file', base_path: '%app.path.materiels_images%' }
+               - { property: 'iconeFile', type: 'file', base_path: '%app.path.materiels_images%' }
+
+
+
+           show:
+             fields:
+               - { property: 'image', type: 'image', base_path: '%app.path.materiels_images%' }
+               - { property: 'icone', type: 'image', base_path: '%app.path.materiels_images%' }
+
+
+
+    user:
+      name_property_path: 'username'
